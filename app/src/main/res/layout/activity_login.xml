@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.foodapp.WelcomeActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="LOGIN"
+        android:textColor="#df6f56"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteX="-8dp">
+
+        <EditText
+            android:id="@+id/et_Email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_background"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="25dp" />
+        <!--        android:textColorHint="@color/material_dynamic_neutral60"-->
+
+        <EditText
+            android:id="@+id/et_Password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_background"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingStart="25dp" />
+
+        <!--        android:textColorHint="@color/material_dynamic_neutral60"-->
+
+        <Button
+            android:id="@+id/bnt_login_loginpage"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_margin="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button2_background"
+            android:text="lOGIN"
+            android:textColor="#ffff"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="221dp"
+        android:layout_height="223dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/penne_arrabiata_with_smoked_sausage_dont_go_bacon_my_heart" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

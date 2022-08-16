@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainlay"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/cart_background"
+    android:elevation="3dp">
+
+    <TextView
+        android:id="@+id/poptitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="title"
+        android:textColor="#373b54"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/poppic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/poptitle"
+        app:srcCompat="@drawable/pop_1" />
+
+    <TextView
+        android:id="@+id/popfee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/poppic"
+        app:layout_constraintStart_toStartOf="@+id/poppic"
+        app:layout_constraintTop_toBottomOf="@+id/poppic" />
+
+    <TextView
+        android:id="@+id/dollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="$"
+        android:textColor="#FF3d00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/popfee"
+        app:layout_constraintEnd_toStartOf="@+id/popfee"
+        app:layout_constraintTop_toBottomOf="@+id/poppic" />
+
+    <TextView
+        android:id="@+id/addbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/orange_btn"
+        android:paddingStart="10dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="3dp"
+        android:text="+ ADD
+"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/poppic"
+        app:layout_constraintStart_toStartOf="@id/poppic"
+        app:layout_constraintTop_toBottomOf="@+id/popfee"
+        app:layout_constraintVertical_bias="0.004" />
+</androidx.constraintlayout.widget.ConstraintLayout>
