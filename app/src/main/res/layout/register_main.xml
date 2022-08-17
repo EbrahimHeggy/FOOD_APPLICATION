@@ -14,11 +14,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="REGISTER"
         android:textSize="55sp"
         android:textColor="#df6f56"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="25dp" />
@@ -29,6 +29,7 @@
         android:layout_width="221dp"
         android:layout_height="223dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -40,10 +41,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.412">
+        app:layout_constraintVertical_bias="1.0">
 
         <EditText
             android:id="@+id/User"
@@ -87,21 +87,21 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName"
-            android:paddingStart="12dp"/>
+            android:paddingStart="12dp" />
 
-<!--            android:textColorHint="#464646"-->
-<!--            android:textSize="15dp" />-->
-<!--        android:id="@+id/bnt_login_loginpage"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="49dp"-->
-<!--        android:layout_margin="40dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:background="@drawable/button2_background"-->
-<!--        android:text="lOGIN"-->
-<!--        android:textColor="#ffff"-->
-<!--        android:textSize="25dp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:cornerRadius="10dp"-->
+        <!--            android:textColorHint="#464646"-->
+        <!--            android:textSize="15dp" />-->
+        <!--        android:id="@+id/bnt_login_loginpage"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="49dp"-->
+        <!--        android:layout_margin="40dp"-->
+        <!--        android:layout_marginTop="10dp"-->
+        <!--        android:background="@drawable/button2_background"-->
+        <!--        android:text="lOGIN"-->
+        <!--        android:textColor="#ffff"-->
+        <!--        android:textSize="25dp"-->
+        <!--        android:textStyle="bold"-->
+        <!--        app:cornerRadius="10dp"-->
 
         <Button
 
@@ -115,6 +115,7 @@
             android:textColor="#ffff"
             android:textSize="25dp"
             android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/pass"
             tools:ignore="MissingConstraints" />
 
 

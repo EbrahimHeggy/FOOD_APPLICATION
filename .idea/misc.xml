@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/background_into.xml" value="0.1615" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/button2_background.xml" value="0.1615" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/button3_background.xml" value="0.1615" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/button_background.xml" value="0.1615" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/ic_iconn.xml" value="0.111" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/drawable/orange_btn.xml" value="0.1615" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/layout/activity_intro.xml" value="0.2359375" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/layout/activity_login.xml" value="0.2359375" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/layout/activity_welcome.xml" value="0.2359375" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/layout/register_main.xml" value="0.2359375" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.111" />
+        <entry key="..\:/Me_technical/Banq Misr_Iternship/NTG_Sessions/Android projects/FOOD_APPLICATION/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.112" />
         <entry key="..\:/lectures/Training Digitory/Foodator/app/src/main/res/drawable/cart_background.xml" value="0.149" />
         <entry key="..\:/lectures/Training Digitory/Foodator/app/src/main/res/drawable/category_background.xml" value="0.1325" />
         <entry key="..\:/lectures/Training Digitory/Foodator/app/src/main/res/drawable/category_background1.xml" value="0.149" />

@@ -6,20 +6,32 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.foodapp.LoginActivity
+import com.example.foodapp.RegisterActivity
 import com.example.foodapp.WelcomeActivity
 import com.example.foodator.R
 
 class IntroActivity : AppCompatActivity() {
 
-      lateinit var startBtn : Button
+    lateinit var registerButton : Button
+    lateinit var loginButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
-        startBtn=findViewById(R.id.btn_start)
-        startBtn.setOnClickListener(){
-                val intent = Intent(this,WelcomeActivity::class.java)
-                startActivity(intent)
+
+
+        registerButton =findViewById(R.id.bnt_register)
+        registerButton.setOnClickListener{
+            // Register()
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+
+        }
+        loginButton = findViewById(R.id.bnt_login)
+        loginButton.setOnClickListener(){
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

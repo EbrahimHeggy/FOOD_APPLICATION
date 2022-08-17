@@ -13,6 +13,7 @@ import com.example.foodapp.database.RegisterRequstData
 import com.example.foodapp.database.service
 import com.example.foodator.Activity.MainActivity
 import com.example.foodator.R
+import com.example.foodator.database.Storage
 import com.ntgclarity.authenticator.database.UsersDatabase
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+       checkToken()
 
         etEmail = findViewById<EditText>(R.id.et_Email)
         etPassword = findViewById<EditText>(R.id.et_Password)
@@ -38,7 +40,6 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
 
             if( password!="" && email !="")    {
                 service.loginUser(email,password)?.enqueue(this)
-
 
 
             }else{ Toast.makeText(this, "Please Fill All Data", Toast.LENGTH_SHORT).show()}
@@ -66,8 +67,10 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
     println("--------------"+response.message())
             if(response.body()?.email!=null){
                 Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                Storage.token=response.body()?.token
+                checkToken()
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
             }
             else if(response.body()?.email==null){
                 Toast.makeText(this, "There Is No Account Found ,Please Register First", Toast.LENGTH_SHORT).show()
@@ -79,6 +82,16 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
     override fun onFailure(call: Call<LoginResposeData?>, t: Throwable) {
         Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
 
+    }
+
+        fun checkToken()
+    {
+        if(Storage.token!=null)
+        {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
     }
 
 //    override fun onResponse(call: Call<Unit?>, response: Response<Unit?>) {

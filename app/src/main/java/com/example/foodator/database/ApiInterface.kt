@@ -7,9 +7,9 @@ import retrofit2.http.*
 
 
 interface ApiInterface {
-   @POST("Home/Register")
+   @POST("Home/register")
     fun registerUser(@Body registerReqeust : RegisterRequstData): Call<Boolean>?
-
+   // https://foodapplicationecomercial.herokuapp.com/Home/login?email=huda@33.com&password=554
     @GET("Home/login")
      fun loginUser(@Query("email") email: String,@Query("password") password:String): Call<LoginResposeData?>?
 
@@ -23,7 +23,7 @@ interface ApiInterface {
 
 }
 var retrofit = Retrofit.Builder()
-    .baseUrl("https://intense-oasis-47535.herokuapp.com/")
+    .baseUrl("https://foodapplicationecomercial.herokuapp.com/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
