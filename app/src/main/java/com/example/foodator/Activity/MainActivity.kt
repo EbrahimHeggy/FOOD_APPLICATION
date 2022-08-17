@@ -1,5 +1,6 @@
 package com.example.foodator.Activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.example.foodator.Activity.Adapter.PopularAdapter
 import com.example.foodator.Activity.Domain.CategoryDomain
 import com.example.foodator.Activity.Domain.FoodDomain
 import com.example.foodator.R
+import com.example.foodator.database.Storage
 
 class MainActivity : AppCompatActivity() {
   lateinit var adapter2 : PopularAdapter
@@ -22,11 +24,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var recyclerViewCategoryList: RecyclerView
     lateinit var recyclerViewPopularList: RecyclerView
     lateinit var profile:TextView
+    lateinit var tv_3 :TextView
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         profile=findViewById(R.id.profile)
+        tv_3=findViewById(R.id.textView3)
 
+        tv_3.text = "${tv_3.text}${Storage.username}"
         recyclerViewCategory()
         recyclerViewPopular()
 

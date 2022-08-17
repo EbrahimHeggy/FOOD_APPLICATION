@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
     println("--------------"+response.body()?.email)
     println("--------------"+response.code())
     println("--------------"+response.message())
-            if(response.body()?.email!=null){
+            if(response.body()?.token!=null){
                 Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                 Storage.token=response.body()?.token
                 checkToken()

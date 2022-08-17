@@ -17,23 +17,23 @@
         android:layout_marginTop="20dp"
         android:text="REGISTER"
         android:textSize="55sp"
-        android:textColor="#df6f56"
+        android:textColor="#FB6400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="25dp" />
-
+<!--    android:textColor="#df6f56"-->
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="221dp"
-        android:layout_height="223dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="210dp"
+        android:layout_height="182dp"
         android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/penne_arrabiata_with_smoked_sausage_dont_go_bacon_my_heart" />
+        app:srcCompat="@drawable/logo2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,9 +41,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.252">
 
         <EditText
             android:id="@+id/User"

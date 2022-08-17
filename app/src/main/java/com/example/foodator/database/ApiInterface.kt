@@ -10,6 +10,7 @@ interface ApiInterface {
    @POST("Home/register")
     fun registerUser(@Body registerReqeust : RegisterRequstData): Call<Boolean>?
    // https://foodapplicationecomercial.herokuapp.com/Home/login?email=huda@33.com&password=554
+
     @GET("Home/login")
      fun loginUser(@Query("email") email: String,@Query("password") password:String): Call<LoginResposeData?>?
 
