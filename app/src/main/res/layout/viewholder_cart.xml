@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/cart_background"
+    android:elevation="3dp">
+
+    <ImageView
+        android:id="@+id/piccart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pop_1" />
+
+    <TextView
+        android:id="@+id/titletxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="title"
+        android:textColor="#373b54"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/piccart"
+        app:layout_constraintTop_toTopOf="@id/piccart"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/minuscartbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/piccart"
+        app:layout_constraintStart_toStartOf="@id/titletxt"
+        app:srcCompat="@drawable/minus" />
+
+    <TextView
+        android:id="@+id/numberitemtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/pluscartbtn"
+        app:layout_constraintStart_toEndOf="@+id/minuscartbtn"
+        app:layout_constraintTop_toTopOf="@+id/minuscartbtn"
+        app:layout_constraintVertical_bias="0.687" />
+
+    <ImageView
+        android:id="@+id/pluscartbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/piccart"
+        app:layout_constraintStart_toEndOf="@id/numberitemtxt"
+        app:srcCompat="@drawable/plus" />
+
+    <TextView
+        android:id="@+id/feeEachitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0"
+        android:textColor="#373b54"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/titletxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titletxt" />
+
+    <TextView
+        android:id="@+id/totalEachitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/pluscartbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pluscartbtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3sp"
+        android:text="$"
+        android:textColor="#ff3d00"
+        app:layout_constraintBottom_toBottomOf="@+id/totalEachitem"
+        app:layout_constraintEnd_toStartOf="@+id/totalEachitem"
+        app:layout_constraintTop_toTopOf="@+id/totalEachitem"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3sp"
+        android:text="$"
+        android:textColor="#ff3d00"
+        app:layout_constraintBottom_toBottomOf="@+id/feeEachitem"
+        app:layout_constraintEnd_toStartOf="@+id/feeEachitem"
+        app:layout_constraintTop_toTopOf="@+id/feeEachitem"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

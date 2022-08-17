@@ -23,7 +23,6 @@ class TinyDB(appContext: Context?) {
     private var DEFAULT_APP_IMAGEDATA_DIRECTORY: String? = null
     var savedImagePath = ""
         private set
-
     fun getImage(path: String?): Bitmap? {
         var bitmapFromPath: Bitmap? = null
         try {
@@ -119,7 +118,7 @@ class TinyDB(appContext: Context?) {
 
     fun getDouble(key: String?): Double {
         val number = getString(key)
-           return number!!.toDouble()
+        return number!!.toDouble()
 
     }
 
@@ -166,7 +165,10 @@ class TinyDB(appContext: Context?) {
 
     fun getListObject(key: String?): ArrayList<FoodDomain> {
         val gson = Gson()
+
         val objStrings = getListString(key)
+        print("####")
+        println(objStrings)
         val playerList: ArrayList<FoodDomain> = ArrayList<FoodDomain>()
         for (jObjString in objStrings) {
             val player: FoodDomain = gson.fromJson(jObjString, FoodDomain::class.java)

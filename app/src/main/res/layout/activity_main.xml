@@ -242,8 +242,9 @@
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageButton
 
+            android:id="@+id/cartBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#ff5e00"
@@ -251,17 +252,14 @@
             android:src="@drawable/shopping_cart"
             app:backgroundTint="#ff5e00"
             app:layout_anchor="@+id/app_bar"
-            app:maxImageSize="30dp"
-            android:tint="#ffffff"
+            app:layout_anchorGravity="top|center"
 
+            app:maxImageSize="30dp"
+            app:tint="#ffffff"
             tools:ignore="MissingConstraints">
 
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        </ImageButton>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

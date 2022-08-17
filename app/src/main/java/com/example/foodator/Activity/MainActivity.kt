@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         tv_3.text = "${tv_3.text}${Storage.username}"
         recyclerViewCategory()
         recyclerViewPopular()
+        bottomnavbar()
+
 
         profile.setOnClickListener(){
             val intent = Intent(this, ProfileActivity::class.java)
@@ -42,7 +46,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun bottomnavbar(){
+        var cartbtn=findViewById<ImageButton>(R.id.cartBtn)
+        var homebtn =findViewById<LinearLayout>(R.id.homeBtn)
 
+        cartbtn.setOnClickListener(){
+            val intent = Intent(this, CartListActivity::class.java)
+            startActivity(intent)
+        }
+        homebtn.setOnClickListener(){
+            cartbtn.setOnClickListener(){
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+    }
 
     private fun recyclerViewCategory() {
       val  linearLayoutManager  = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
@@ -66,9 +84,9 @@ class MainActivity : AppCompatActivity() {
         recyclerViewPopularList.setLayoutManager(linearLayoutManager)
 
         val FoodList : ArrayList<FoodDomain>  = ArrayList()
-        FoodList.add(FoodDomain("Pepproni Pizza","pizza1","slices pepproni",9.76))
-        FoodList.add(FoodDomain("Cheese Burger","burger","beef,cheese",10.0))
-        FoodList.add(FoodDomain("Vegetables Pizza","pizza2","slices vegetables ",8.0))
+        FoodList.add(FoodDomain("Pizza","Pepproni Pizza","pizza1","slices pepproni",9.76))
+        FoodList.add(FoodDomain("Burger","Cheese Burger","burger","beef,cheese",10.0))
+        FoodList.add(FoodDomain("Special Pizza","Vegetables Pizza","pizza2","slices vegetables ",8.0))
 
          adapter2 = PopularAdapter(FoodList)
         recyclerViewPopularList.setAdapter(adapter2)

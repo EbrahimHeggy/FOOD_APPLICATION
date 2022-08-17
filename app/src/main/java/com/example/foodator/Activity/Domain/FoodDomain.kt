@@ -5,15 +5,17 @@ import java.io.Serializable
 open class FoodDomain : Serializable {
     var title : String
     var pic : String
+    lateinit var category : String
     var description : String
     var fee : Double
     var numberInCart : Int = 0
 
-    constructor(title:String , pic:String,description : String,fee : Double){
+    constructor(category : String, title:String , pic:String,description : String,fee : Double){
         this.pic=pic
         this.title=title
         this.description=description
         this.fee=fee
+        this.category=category
     }
 
     constructor(title:String , pic:String,description : String,fee : Double,numberInCart:Int){
@@ -26,6 +28,11 @@ open class FoodDomain : Serializable {
 
     fun gettitle():String{
         return this.title
+    }
+
+
+    fun getcatogery():String{
+        return this.category
     }
 
     fun getpic():String{

@@ -3,12 +3,9 @@ package com.example.foodator.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.foodapp.LoginActivity
 import com.example.foodapp.RegisterActivity
-import com.example.foodapp.WelcomeActivity
 import com.example.foodator.R
 
 class IntroActivity : AppCompatActivity() {
@@ -30,7 +27,7 @@ class IntroActivity : AppCompatActivity() {
         }
         loginButton = findViewById(R.id.bnt_login)
         loginButton.setOnClickListener(){
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, Menu::class.java)
             startActivity(intent)
         }
     }
