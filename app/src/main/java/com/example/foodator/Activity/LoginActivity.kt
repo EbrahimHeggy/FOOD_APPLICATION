@@ -70,6 +70,9 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
                 Log.d("####", response.body()!!.token!!)
                 Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                 Storage.token=response.body()?.token
+                println("test  ${Storage.token}")
+                Storage.email=response.body()?.email
+                Storage.username=response.body()?.username
                 checkToken()
 //                val intent = Intent(this, MainActivity::class.java)
 //                startActivity(intent)

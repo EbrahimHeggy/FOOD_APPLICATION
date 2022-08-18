@@ -18,11 +18,21 @@ interface ApiInterface {
    // fun getNews(@Query("category") category: String,@Query("apiKey") apiKey: String): Call<ApiResponse?>? //// return news
 
 
-    @PUT("PUT/profile")
-     fun upateProfile(@Body registerReqeust : RegisterRequstData): Call<Boolean>?
+//    @Headers(
+//        {
+//            "Authorization:"
+//        }
+//    )
+   // https://foodapplicationecomercial.herokuapp.com/Home/UpdateProfile?newEmail=huda@33.com&newUsername=huda&newPassword=H5_h511115
+    @POST("Home/UpdateProfile/")
+     fun upateProfile(@Header("Authorization") Authorization: String, @Query("newEmail") newEmail: String, @Query("newUsername") newUsername:String, @Query("newPassword") newPassword:String): Call<String>?
+
+    @POST("Home/UpdateProfile?newEmail=huda@33.com&newUsername=huda&newPassword=H5_h511116")
+    fun upateProfile2(@Header("Authorization") Authorization: String): Call<String>?
 
 
 }
+
 var retrofit = Retrofit.Builder()
     .baseUrl("https://foodapplicationecomercial.herokuapp.com/")
     .addConverterFactory(GsonConverterFactory.create())

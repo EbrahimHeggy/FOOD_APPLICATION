@@ -167,6 +167,7 @@ class TinyDB(appContext: Context?) {
         val gson = Gson()
 
         val objStrings = getListString(key)
+        //objStrings.clear()
         print("####")
         println(objStrings)
         val playerList: ArrayList<FoodDomain> = ArrayList<FoodDomain>()
@@ -174,8 +175,12 @@ class TinyDB(appContext: Context?) {
             val player: FoodDomain = gson.fromJson(jObjString, FoodDomain::class.java)
             playerList.add(player)
         }
+
         return playerList
     }
+
+
+
 
     fun <T> getObject(key: String?, classOfT: Class<T>?): T {
         val json = getString(key)

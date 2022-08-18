@@ -1,5 +1,6 @@
 package com.example.foodator.Activity
 
+import android.icu.number.IntegerWidth
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,8 @@ class ShowDetActivity : AppCompatActivity() {
     lateinit var picfood : ImageView
     var numberOrder=1
     lateinit var managementcart:ManagmentCart
+//  lateinit var  obj2: FoodDomain
+//    var total =obj2.getfee()
 
 
 
@@ -40,20 +43,24 @@ class ShowDetActivity : AppCompatActivity() {
         getBundle()
     }
     fun getBundle() {
-        val obj: FoodDomain
-        obj = intent.getSerializableExtra("obj") as FoodDomain
+         val  obj2: FoodDomain
+        obj2 = intent.getSerializableExtra("obj") as FoodDomain
+        var total =obj2.getfee()
 
-        var drawableId = this.resources.getIdentifier(obj.getpic(), "drawable", this.packageName)
+        var drawableId = this.resources.getIdentifier(obj2.getpic(), "drawable", this.packageName)
         Glide.with(this).load(drawableId).into(picfood)
 
-        titletxt.setText(obj.gettitle())
-        feetxt.setText("$" + obj.getfee().toString())
-        desctxt.setText(obj.getdesc())
+        titletxt.setText(obj2.gettitle())
+        feetxt.setText("$" + obj2.getfee().toString())
+        desctxt.setText(obj2.getdesc())
         numberOrdertxt.setText(numberOrder.toString())
+
 
         plusbtn.setOnClickListener(){
                 numberOrder=numberOrder+1
                 numberOrdertxt.text=numberOrder.toString()
+             total =total*2
+            feetxt.setText("$" + total)
 
         }
 
@@ -61,13 +68,15 @@ class ShowDetActivity : AppCompatActivity() {
 
                 if(numberOrder>1)  numberOrder=numberOrder-1
                numberOrdertxt.text= numberOrder.toString()
+            total =total/2
+            feetxt.setText("$" + total)
 
         }
 
         addToCartBtn.setOnClickListener(){
 
-                obj.setnumberInCart(numberOrder)
-                managementcart.insertFood(obj)
+                obj2.setnumberInCart(numberOrder)
+                managementcart.insertFood(obj2)
 
         }
     }

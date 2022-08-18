@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.foodapp.LoginActivity
+import com.example.foodapp.ProfileActivity
 import com.example.foodapp.RegisterActivity
 import com.example.foodator.R
 

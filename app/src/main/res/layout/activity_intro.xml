@@ -6,51 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".Activity.IntroActivity">
 
-
-    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-    <!--        android:id="@+id/startBtn"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_marginStart="24dp"-->
-    <!--        android:layout_marginEnd="24dp"-->
-    <!--        android:background="@drawable/orange_btn"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/imageView">-->
-
-    <!--    style="@style/Widget.MaterialComponents.Button.Icon"-->
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="523dp"
-        android:scaleType="fitXY"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:src="@drawable/background_intro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-12dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
         android:src="@drawable/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="348dp" />
+
+        app:layout_constraintBottom_toTopOf="@id/bnt_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
-        android:text="FOODATOR"
+        android:text="MR CHIEF"
+
         android:textColor="#3d33a8"
-        android:textSize="70sp"
-        android:textStyle="bold"
+        android:layout_marginTop="45dp"
+        android:textSize="50sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,43 +48,37 @@
     <Button
         android:id="@+id/bnt_login"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/button_background"
         android:text="Login"
         android:textColor="#FAE8E8"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="25dp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@id/bnt_register"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/bnt_register"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/button3_background"
         android:text="Register"
         android:textColor="#ff5e00"
         android:textSize="25dp"
         android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:cornerRadius="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/bnt_login"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
-    <!--    <Button-->
-    <!--        android:id="@+id/btn_start"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_marginStart="24dp"-->
-    <!--        android:layout_marginEnd="24dp"-->
-    <!--        android:layout_marginTop="500dp"-->
-    <!--        android:background="@drawable/orange_btn"-->
-    <!--        android:text="Get Started"-->
-    <!--        android:textSize="24sp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.foodator.Activity.Domain.CategoryDomain
 import com.example.foodator.R
 
-class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listener: CategoryAdapter.OnItemClickListener) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 //    var categoryDomains : ArrayList<CategoryDomain> = ArrayList()
 
 //constructor(categoryDomains: ArrayList<CategoryDomain>){
@@ -32,6 +32,10 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>) : Recycler
         }
 
     }
+    interface OnItemClickListener {
+        fun onItemClick(category:String)
+        // fun onImageClick()
+    }
 
     @SuppressLint("ResourceType")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,13 +51,18 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>) : Recycler
                 picUrl="cat_1"
                 holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
                 holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_1))
+                holder.CategoryPic.setOnClickListener(){
+                     listener.onItemClick("pizza")
+                }
 
             }
             1 -> {
                 picUrl="cat_2"
                 holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
                 holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
-
+                holder.CategoryPic.setOnClickListener(){
+                    listener.onItemClick("burger")
+                }
             }
             2-> {
             picUrl="cat_3"
@@ -64,7 +73,9 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>) : Recycler
             picUrl="cat_4"
             holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background4))
             holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_4))
-
+            holder.CategoryPic.setOnClickListener(){
+                listener.onItemClick("drink")
+            }
         }
             4-> {
             picUrl="cat_5"

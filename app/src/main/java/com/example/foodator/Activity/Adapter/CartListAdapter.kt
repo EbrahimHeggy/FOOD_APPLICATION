@@ -23,62 +23,70 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
     lateinit var managmentCart: ManagmentCart
     lateinit var changeNumberItemsListener: ChangeNumberItemsListener
 
-    constructor(foodDomain: ArrayList<FoodDomain>, context: Context, changeNumberItemsListener: () -> Unit) : this() {
-        this.managmentCart=ManagmentCart(context)
-        this.foodDomain=foodDomain
+    constructor(
+        foodDomain: ArrayList<FoodDomain>,
+        context: Context,
+        changeNumberItemsListener: () -> Unit
+    ) : this() {
+        this.managmentCart = ManagmentCart(context)
+        this.foodDomain = foodDomain
         //this.changeNumberItemsListener=changeNumberItemsListener
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        var title:TextView
-        var feeEachItem:TextView
-        var pic:ImageView
-        var plusitem:ImageView
-        var minusitem:ImageView
-        var totalEachItem: TextView
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var title: TextView
+        var feeEachItem: TextView
+        var pic: ImageView
+        var plusitem: ImageView
+        var minusitem: ImageView
+
+        //  var totalEachItem: TextView
         var num: TextView
+
         init {
             super.itemView
-            title=itemView.findViewById(R.id.titletxt)
-            feeEachItem=itemView.findViewById(R.id.feeEachitem)
-            pic=itemView.findViewById(R.id.piccart)
-            totalEachItem=itemView.findViewById(R.id.totalEachitem)
-            num=itemView.findViewById(R.id.numberitemtxt)
-            plusitem=itemView.findViewById(R.id.pluscartbtn)
-            minusitem=itemView.findViewById(R.id.minuscartbtn)
+            title = itemView.findViewById(R.id.titletxt)
+            feeEachItem = itemView.findViewById(R.id.feeEachitem)
+            pic = itemView.findViewById(R.id.piccart)
+            // totalEachItem=itemView.findViewById(R.id.totalEachitem)
+            num = itemView.findViewById(R.id.numberitemtxt)
+            plusitem = itemView.findViewById(R.id.pluscartbtn)
+            minusitem = itemView.findViewById(R.id.minuscartbtn)
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartListAdapter.ViewHolder {
-        val inflate :View = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_cart,parent,false)
+        val inflate: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.viewholder_cart, parent, false)
 
-        return  ViewHolder(inflate)
+        return ViewHolder(inflate)
     }
 
     override fun onBindViewHolder(holder: CartListAdapter.ViewHolder, position: Int) {
         holder.title.setText(foodDomain.get(position).gettitle())
         holder.feeEachItem.setText(foodDomain.get(position).getfee().toString())
-      //  holder.totalEachItem.setText(Math.round((foodDomain.get(position).getnumInCart()*foodDomain.get(position).getfee()*100)/100).toString())
+        //  holder.totalEachItem.setText(Math.round((foodDomain.get(position).getnumInCart()*foodDomain.get(position).getfee()*100)/100).toString())
         holder.num.setText(foodDomain.get(position).getnumInCart().toString())
 
 
-        var  drawableResourceId : Int = getImage(position)
+        var drawableResourceId: Int = getImage(foodDomain.get(position).gettitle())
 
         Glide.with(holder.itemView.context)
             .load(drawableResourceId)
             .into(holder.pic)
 
-        holder.plusitem.setOnClickListener(){ managmentCart.plusNumberFood(foodDomain,position) {
+        holder.plusitem.setOnClickListener() {
+            managmentCart.plusNumberFood(foodDomain, position) {
 
-                    notifyDataSetChanged()
-                    changeNumberItemsListener.changed()
+                notifyDataSetChanged()
+                changeNumberItemsListener.changed()
             }
         }
 
 
-        holder.minusitem.setOnClickListener(){
-            managmentCart.plusNumberFood(foodDomain,position) {
+        holder.minusitem.setOnClickListener() {
+            managmentCart.plusNumberFood(foodDomain, position) {
                 fun changed() {
                     notifyDataSetChanged()
                     changeNumberItemsListener.changed()
@@ -86,34 +94,65 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
             }
         }
 
-        }
+    }
 
-    fun getImage(position: Int):Int{
-        var picUrl:String =""
-        when(position){
-            0 -> {
-                picUrl="pop_1"
-              //  holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
-               // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.pop_1))
+
+    fun getImage(title: String): Int {
+        var picUrl: String = ""
+        when (title) {
+            "Pepproni Pizza" -> {
+                picUrl = "pop_1"
+                //  holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.pop_1))
                 return R.drawable.pop_1
             }
-            1 -> {
-                picUrl="pop_2"
-             //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
-               // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+            "Cheese Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
                 return R.drawable.pop_2
             }
-            2-> {
-                picUrl="pop_3"
-             //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
-               // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+            "Vegetables Pizza" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
                 return R.drawable.pop_3
             }
-            else -> {
-                return R.drawable.pop_1
+            "Strawberry Juice" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                return R.drawable.cocktail
             }
+            "Orange Juice" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                return R.drawable.download_cocktail_glass_png_images_background_cold_drinks_png_png_for_free_download_dlpng
+            }
+            "Mango Juice" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                return R.drawable.drink_3
+            }
+            "Motzarilla Pizza" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                return R.drawable.pop_5
+            }
+            "Chicken Burger" -> {
+                picUrl = "pop_3"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                return R.drawable.mcdonalds_burger_png_high_quality_image_chicken_burger_kfc_png_transparent_png600x600_png_find
+            }
+            else -> {
+                return R.drawable.mcdonalds_burger_png_high_quality_image_chicken_burger_kfc_png_transparent_png600x600_png_find
+            }
+        }
     }
-}
 
 
 

@@ -6,15 +6,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.foodapp.database.LoginRequestData
 import com.example.foodapp.database.RegisterRequstData
 import com.example.foodapp.database.service
 import com.example.foodator.R
+import com.example.foodator.database.Storage
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProfileActivity : AppCompatActivity(), Callback<Boolean> {
+class ProfileActivity : AppCompatActivity(), Callback<String> {
     var etName: EditText? = null
     var etEmail: EditText? = null
     var etPassword: EditText? = null
@@ -30,13 +31,13 @@ class ProfileActivity : AppCompatActivity(), Callback<Boolean> {
         etPassword = findViewById<EditText>(R.id.et_pass)
        updateButton = findViewById<Button>(R.id.bnt_update)
 
-        var oldname = "HuDa"
+        var oldname = Storage.username
       etName?.setText("$oldname", TextView.BufferType.EDITABLE)
 
-        var oldEmail = "had@"
+        var oldEmail = Storage.email
         etEmail?.setText("$oldEmail", TextView.BufferType.EDITABLE)
 
-        var oldpassword="55"
+        var oldpassword="......."
       etPassword?.setText("$oldpassword", TextView.BufferType.EDITABLE)
 
         updateButton.setOnClickListener(){
@@ -45,7 +46,17 @@ class ProfileActivity : AppCompatActivity(), Callback<Boolean> {
                        var newPassword = etPassword?.text.toString()
            updatedData  =RegisterRequstData(newName,newEmail,newPassword)
 
-            service.upateProfile(updatedData)?.enqueue(this)
+            println("${Storage.token}")
+            println(newEmail)
+            println(newName)
+            println(newPassword)
+            println("#####33")
+//            service.upateProfile("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJodWRhQDMzLmNvbSIsImlhdCI6MTY2MDgxMjg1MiwiZXhwIjoxNjYwODEzNzUyfQ.4yXlrGJVJBUwYIjtRSGjSFMGPboAMmQnU7-41LMx-XDvV91_wxoXe8bSbCAehorko5rPY9KI2ltkWI8S9g6v5w"
+//                ,newEmail,newName,"H5_h511111")?.enqueue(this)
+
+            service.upateProfile2("Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJodWRhQDMzLmNvbSIsImlhdCI6MTY2MDgxMjg1MiwiZXhwIjoxNjYwODEzNzUyfQ.4yXlrGJVJBUwYIjtRSGjSFMGPboAMmQnU7-41LMx-XDvV91_wxoXe8bSbCAehorko5rPY9KI2ltkWI8S9g6v5w"
+                )?.enqueue(this)
+            println("${Storage.token}")
         }
 
     }
@@ -55,11 +66,20 @@ class ProfileActivity : AppCompatActivity(), Callback<Boolean> {
 //    }
 
 
-    override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
-        TODO("Not yet implemented")
+
+
+    override fun onResponse(call: Call<String>, response: Response<String>) {
+
+         println(response.code())
+        println(response.message())
+        println(response.errorBody().toString())
+        val gson = Gson()
+        println(gson.toJson(response.body()))
+        Toast.makeText(this, "${gson.toJson(response.body())}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onFailure(call: Call<Boolean>, t: Throwable) {
-        TODO("Not yet implemented")
+    override fun onFailure(call: Call<String>, t: Throwable) {
+        Toast.makeText(this, "faaaaail", Toast.LENGTH_SHORT).show()
+
     }
 }
