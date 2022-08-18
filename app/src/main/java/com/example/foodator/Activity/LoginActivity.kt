@@ -3,6 +3,7 @@ package com.example.foodapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -66,6 +67,7 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
     println("--------------"+response.code())
     println("--------------"+response.message())
             if(response.body()?.token!=null){
+                Log.d("####", response.body()!!.token!!)
                 Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                 Storage.token=response.body()?.token
                 checkToken()

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var recyclerViewCategoryList: RecyclerView
     lateinit var recyclerViewPopularList: RecyclerView
+    lateinit var menu:Button
     lateinit var profile:TextView
     lateinit var tv_3 :TextView
     @SuppressLint("SetTextI18n")
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         profile=findViewById(R.id.profile)
         tv_3=findViewById(R.id.textView3)
+//        menu=findViewById(R.id.btn_menu)
 
         tv_3.text = "${tv_3.text}${Storage.username}"
         recyclerViewCategory()
@@ -44,7 +47,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
+
+//        menu.setOnClickListener(){
+//            val intent = Intent(this, Menu::class.java)
+//            startActivity(intent)
+//        }
     }
+
+
 
     fun bottomnavbar(){
         var cartbtn=findViewById<ImageButton>(R.id.cartBtn)

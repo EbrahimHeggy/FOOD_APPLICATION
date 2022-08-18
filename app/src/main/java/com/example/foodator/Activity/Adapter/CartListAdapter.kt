@@ -59,7 +59,7 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: CartListAdapter.ViewHolder, position: Int) {
         holder.title.setText(foodDomain.get(position).gettitle())
         holder.feeEachItem.setText(foodDomain.get(position).getfee().toString())
-        holder.totalEachItem.setText(Math.round((foodDomain.get(position).getnumInCart()*foodDomain.get(position).getfee()*100)/100).toString())
+      //  holder.totalEachItem.setText(Math.round((foodDomain.get(position).getnumInCart()*foodDomain.get(position).getfee()*100)/100).toString())
         holder.num.setText(foodDomain.get(position).getnumInCart().toString())
 
 

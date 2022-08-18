@@ -27,7 +27,7 @@ class IntroActivity : AppCompatActivity() {
         }
         loginButton = findViewById(R.id.bnt_login)
         loginButton.setOnClickListener(){
-            val intent = Intent(this, Menu::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

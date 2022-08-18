@@ -17,11 +17,10 @@ import com.example.foodator.helper.ManagmentCart
 class CartListActivity : AppCompatActivity() {
     lateinit var adapter: CartListAdapter
     lateinit var recyclerViewList: RecyclerView
-    lateinit var totalfeetxt:TextView
    lateinit var managmentCart : ManagmentCart
-    lateinit var totaltxt:TextView
-    lateinit var taxtxt:TextView
     lateinit var deliverytxt:TextView
+    lateinit var totalitems:TextView
+    lateinit var totaltxt:TextView
     lateinit var emptytxt:TextView
     lateinit var scrollView: ScrollView
 
@@ -29,38 +28,19 @@ class CartListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_list)
 //        recyclerViewList=findViewById(R.id.recyclerView)
-        totalfeetxt=findViewById(R.id.totaltxt)
-        taxtxt=findViewById(R.id.totaltaxtxt)
-        deliverytxt=findViewById(R.id.deliverytxt)
         totaltxt=findViewById(R.id.totaltxt)
+        totalitems=findViewById(R.id.totalitemstxt)
+        deliverytxt=findViewById(R.id.totaldeliverytxt)
         emptytxt=findViewById(R.id.empty)
         scrollView=findViewById(R.id.scrollView)
         recyclerViewList=findViewById(R.id.cartView)
          managmentCart = ManagmentCart(applicationContext)
 
-
         initList()
         calculateCart()
-        bottomnavbar()
     }
 
 
-    fun bottomnavbar(){
-      var cartbtn=findViewById<ImageButton>(R.id.cartBtn)
-        var homebtn =findViewById<LinearLayout>(R.id.homeBtn)
-
-//        cartbtn.setOnClickListener(){
-//            val intent = Intent(this, CartListActivity::class.java)
-//            startActivity(intent)
-//        }
-
-        homebtn.setOnClickListener(){
-            cartbtn.setOnClickListener(){
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
-        }
-    }
 
     fun initList(){
         val  linearLayoutManager  = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
@@ -87,15 +67,12 @@ class CartListActivity : AppCompatActivity() {
 
 
     fun calculateCart(){
-        val percenttax =0.02
         val delivery =10.0
-        var tax : Long =Math.round((managmentCart.getTotalfee()*percenttax)*100)/100
-        var total : Long =Math.round((managmentCart.getTotalfee()+tax+delivery)*100)/100
-        var itemtotal : Long =Math.round(managmentCart.getTotalfee()*100)/100
+        var total : Long =Math.round((managmentCart.getTotalfee()+delivery)*100)/100
+//        totalitems.setText(managmentCart.getListCart().size)
+//
 
-
-        totalfeetxt.setText("$"+itemtotal)
-        taxtxt.setText("$"+tax)
+       // totalfeetxt.setText("$"+itemtotal)
         deliverytxt.setText("$"+delivery)
         totaltxt.setText("$"+total)
     }
