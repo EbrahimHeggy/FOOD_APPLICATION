@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
 
         iv_Lougout.setOnClickListener(){
             Storage.token=null
-            val intent = Intent(this, IntroActivity::class.java)
+            val intent = Intent(this, startActivity()::class.java)
             intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }

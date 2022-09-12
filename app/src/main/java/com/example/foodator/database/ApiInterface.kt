@@ -15,6 +15,7 @@ interface ApiInterface {
      fun loginUser(@Query("email") email: String,@Query("password") password:String): Call<LoginResposeData?>?
 
 
+
    // fun getNews(@Query("category") category: String,@Query("apiKey") apiKey: String): Call<ApiResponse?>? //// return news
 
 

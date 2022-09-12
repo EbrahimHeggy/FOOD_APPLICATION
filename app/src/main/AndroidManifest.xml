@@ -37,8 +37,9 @@
         <activity
             android:name=".Activity.Menu"
             android:exported="true" />
+
         <activity
-            android:name=".Activity.IntroActivity"
+            android:name=".Activity.startActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

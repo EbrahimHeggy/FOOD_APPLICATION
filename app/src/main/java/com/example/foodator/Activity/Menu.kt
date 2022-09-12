@@ -23,7 +23,6 @@ class Menu : AppCompatActivity() {
     }
 
 
-
     private fun recyclerViewPopular() {
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerViewMenuList = findViewById(R.id.recyclerView3)
@@ -58,7 +57,5 @@ class Menu : AppCompatActivity() {
            recyclerViewMenuList.setAdapter(adapter3)
 
        }
-//        adapter3 = MenuAdapter(fillData(FoodList))
-//        recyclerViewMenuList.setAdapter(adapter3)
     }
 }

@@ -53,7 +53,7 @@ class ManagmentCart {
     }
 
 
-    fun minusNumberFood( listfood : ArrayList<FoodDomain>,position: Int , changeNumberItemsListener: ChangeNumberItemsListener) {
+    fun minusNumberFood( listfood : ArrayList<FoodDomain>,position: Int , changeNumberItemsListener: () -> Unit) {
         if (listfood.get(position).getnumInCart()==1){
             listfood.removeAt(position)
         }
@@ -62,8 +62,10 @@ class ManagmentCart {
 
         }
         tiny.putListObject("CartList",listfood)
-        //changeNumberItemsListener.changed()
+        changeNumberItemsListener
     }
+
+
     fun getTotalfee():Double{
         val listfood :ArrayList<FoodDomain> =getListCart()
         var fee =0.0

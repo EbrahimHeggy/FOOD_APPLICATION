@@ -37,7 +37,6 @@ class CartListActivity : AppCompatActivity() {
         deliverytxt=findViewById(R.id.totaldeliverytxt)
 
         totaltxt=findViewById(R.id.totalitemstxt)
-
         emptytxt=findViewById(R.id.empty)
         scrollView=findViewById(R.id.scrollView)
         recyclerViewList=findViewById(R.id.cartView)
@@ -63,23 +62,6 @@ class CartListActivity : AppCompatActivity() {
 
     }
 
-
-//    fun bottomnavbar(){
-//        var cartbtn=findViewById<ImageButton>(R.id.cartBtn)
-//        var homebtn =findViewById<LinearLayout>(R.id.homeBtn)
-
-//        cartbtn.setOnClickListener(){
-//            val intent = Intent(this, CartListActivity::class.java)
-//            startActivity(intent)
-//        }
-
-//        homebtn.setOnClickListener(){
-//            cartbtn.setOnClickListener(){
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent)
-//            }
-//        }
-   // }
 
     fun initList(){
         val  linearLayoutManager  = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
@@ -107,7 +89,7 @@ class CartListActivity : AppCompatActivity() {
 
     fun calculateCart(){
         val percenttax =0.02
-        val delivery =10.0
+        val delivery =2.0
         var tax : Long =Math.round((managmentCart.getTotalfee()*percenttax)*100)/100
         var total : Long =Math.round((managmentCart.getTotalfee()+tax+delivery)*100)/100
         var itemtotal : Long =Math.round(managmentCart.getTotalfee()*100)/100

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -39,8 +40,6 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
         var pic: ImageView
         var plusitem: ImageView
         var minusitem: ImageView
-
-        //  var totalEachItem: TextView
         var num: TextView
 
         init {
@@ -48,7 +47,6 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
             title = itemView.findViewById(R.id.titletxt)
             feeEachItem = itemView.findViewById(R.id.feeEachitem)
             pic = itemView.findViewById(R.id.piccart)
-            // totalEachItem=itemView.findViewById(R.id.totalEachitem)
             num = itemView.findViewById(R.id.numberitemtxt)
             plusitem = itemView.findViewById(R.id.pluscartbtn)
             minusitem = itemView.findViewById(R.id.minuscartbtn)
@@ -66,10 +64,7 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: CartListAdapter.ViewHolder, position: Int) {
         holder.title.setText(foodDomain.get(position).gettitle())
         holder.feeEachItem.setText(foodDomain.get(position).getfee().toString())
-        //  holder.totalEachItem.setText(Math.round((foodDomain.get(position).getnumInCart()*foodDomain.get(position).getfee()*100)/100).toString())
         holder.num.setText(foodDomain.get(position).getnumInCart().toString())
-
-
         var drawableResourceId: Int = getImage(foodDomain.get(position).gettitle())
 
         Glide.with(holder.itemView.context)
@@ -78,19 +73,19 @@ class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
 
         holder.plusitem.setOnClickListener() {
             managmentCart.plusNumberFood(foodDomain, position) {
-
+                holder.num.setText(foodDomain.get(position).getnumInCart().toString())
                 notifyDataSetChanged()
                 changeNumberItemsListener.changed()
+
             }
         }
 
 
         holder.minusitem.setOnClickListener() {
-            managmentCart.plusNumberFood(foodDomain, position) {
-                fun changed() {
-                    notifyDataSetChanged()
-                    changeNumberItemsListener.changed()
-                }
+            managmentCart.minusNumberFood(foodDomain, position) {
+                holder.num.setText(foodDomain.get(position).getnumInCart().toString())
+                notifyDataSetChanged()
+                changeNumberItemsListener.changed()
             }
         }
 

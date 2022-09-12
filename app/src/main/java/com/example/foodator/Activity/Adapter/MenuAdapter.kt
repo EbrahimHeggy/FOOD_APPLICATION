@@ -52,33 +52,6 @@ class MenuAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter<Me
         holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
         holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,FoodList.get(position).getpicdraw()))
 
-//        when(position){
-//            0 -> {
-//                picUrl="pop_1"
-//                holder.mainlayout.setBackground(
-//                    ContextCompat.getDrawable(holder.itemView.context,
-//                        R.drawable.category_background1))
-//                holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context, R.drawable.pop_1))
-//
-//            }
-//            1 -> {
-//                picUrl="pop_2"
-//                holder.mainlayout.setBackground(
-//                    ContextCompat.getDrawable(holder.itemView.context,
-//                        R.drawable.category_background2))
-//                holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context, R.drawable.pop_2))
-//
-//            }
-//            2-> {
-//                picUrl="pop_3"
-//                holder.mainlayout.setBackground(
-//                    ContextCompat.getDrawable(holder.itemView.context,
-//                        R.drawable.category_background3))
-//                holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context, R.drawable.pop_3))
-//            }
-
-    //    }
-
         holder.addbtn.setOnClickListener(){
             val intent = Intent(holder.itemView.context, ShowDetActivity::class.java)
             intent.putExtra("obj",FoodList.get(position))

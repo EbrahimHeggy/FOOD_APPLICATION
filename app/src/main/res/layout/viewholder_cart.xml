@@ -110,4 +110,5 @@
         app:layout_constraintEnd_toStartOf="@+id/feeEachitem"
         app:layout_constraintTop_toTopOf="@+id/feeEachitem"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
