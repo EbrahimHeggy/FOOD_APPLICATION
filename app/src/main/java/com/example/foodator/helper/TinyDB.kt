@@ -165,7 +165,6 @@ class TinyDB(appContext: Context?) {
 
     fun getListObject(key: String?): ArrayList<FoodDomain> {
         val gson = Gson()
-
         val objStrings = getListString(key)
         //objStrings.clear()
         print("####")

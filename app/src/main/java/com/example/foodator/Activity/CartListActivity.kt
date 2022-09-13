@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodator.Activity.Adapter.CartListAdapter
 import com.example.foodator.Activity.Domain.FoodDomain
 import com.example.foodator.R
+import com.example.foodator.database.Storage.token
 import com.example.foodator.helper.ManagmentCart
 
 class CartListActivity : AppCompatActivity() {
@@ -40,19 +41,16 @@ class CartListActivity : AppCompatActivity() {
         emptytxt=findViewById(R.id.empty)
         scrollView=findViewById(R.id.scrollView)
         recyclerViewList=findViewById(R.id.cartView)
-        managmentCart = ManagmentCart(applicationContext)
+
+        var i = intent
+        var token = i.getStringExtra("token")
+        managmentCart = ManagmentCart(applicationContext,token!!)
         chekout=findViewById(R.id.checkout)
 
         initList()
         calculateCart()
         chekout.setOnClickListener(){
-//
-//            recyclerViewList?.adapter?.notifyDataSetChanged()
-
-            adapter= CartListAdapter( ArrayList<FoodDomain>(),this) {
-                recyclerViewList?.adapter?.notifyDataSetChanged()
-
-                }
+            adapter= CartListAdapter(token, managmentCart.getListCart(),this)
             recyclerViewList.setAdapter(adapter)
             calculateCart2()
         }
@@ -66,13 +64,7 @@ class CartListActivity : AppCompatActivity() {
     fun initList(){
         val  linearLayoutManager  = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         recyclerViewList.setLayoutManager(linearLayoutManager)
-        adapter= CartListAdapter(managmentCart.getListCart(),this) {
-            fun changed() {
-                calculateCart()
-            }
-
-        }
-
+        adapter= CartListAdapter(token!!,managmentCart.getListCart(),this)
 
         recyclerViewList.setAdapter(adapter)
         if (managmentCart.getListCart().isEmpty()){

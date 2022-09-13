@@ -14,12 +14,8 @@ import com.bumptech.glide.Glide
 import com.example.foodator.Activity.Domain.CategoryDomain
 import com.example.foodator.R
 
-class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listener: CategoryAdapter.OnItemClickListener) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-//    var categoryDomains : ArrayList<CategoryDomain> = ArrayList()
+class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listener: CategoryAdapter.OnItemClickListener,var token:String) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
-//constructor(categoryDomains: ArrayList<CategoryDomain>){
-//    this.categoryDomains=categoryDomains
-//}
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val CategoryName: TextView
         val CategoryPic: ImageView
@@ -33,7 +29,7 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
 
     }
     interface OnItemClickListener {
-        fun onItemClick(category:String)
+        fun onItemClick(category:String,token: String)
         // fun onImageClick()
     }
 
@@ -52,7 +48,7 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
                 holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
                 holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_1))
                 holder.CategoryPic.setOnClickListener(){
-                     listener.onItemClick("pizza")
+                     listener.onItemClick("pizza",token)
                 }
 
             }
@@ -61,7 +57,7 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
                 holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
                 holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
                 holder.CategoryPic.setOnClickListener(){
-                    listener.onItemClick("burger")
+                    listener.onItemClick("burger",token)
                 }
             }
             2-> {
@@ -74,7 +70,7 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
             holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background4))
             holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_4))
             holder.CategoryPic.setOnClickListener(){
-                listener.onItemClick("drink")
+                listener.onItemClick("drink",token)
             }
         }
             4-> {
@@ -84,13 +80,6 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
 
             }
         }
-//      val  drawableResourceId : Int = holder.itemView.context.resources.getIdentifier(picUrl,"drawable",holder.itemView.context.packageName)
-
-//        Glide.with(holder.itemView.context)
-//            .load(drawableResourceId)
-//            .into(holder.CategoryPic)
-
-
     }
 
     override fun getItemCount(): Int {

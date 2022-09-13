@@ -19,19 +19,14 @@ interface ChangeNumberItemsListener{
     fun changed()
 }
 
-class CartListAdapter() : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
+class CartListAdapter(val token :String, foodDomain: ArrayList<FoodDomain>, context: Context,) : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
     lateinit var foodDomain: ArrayList<FoodDomain>
     lateinit var managmentCart: ManagmentCart
     lateinit var changeNumberItemsListener: ChangeNumberItemsListener
 
-    constructor(
-        foodDomain: ArrayList<FoodDomain>,
-        context: Context,
-        changeNumberItemsListener: () -> Unit
-    ) : this() {
-        this.managmentCart = ManagmentCart(context)
+    init {
+        this.managmentCart = ManagmentCart(context,token)
         this.foodDomain = foodDomain
-        //this.changeNumberItemsListener=changeNumberItemsListener
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

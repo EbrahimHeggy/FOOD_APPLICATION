@@ -23,14 +23,13 @@ import com.example.foodator.database.Storage
 class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
   lateinit var adapter2 : PopularAdapter
    lateinit var adapter:CategoryAdapter
-
-//  lateinit var adapter2 : RecyclerView.Adapter
-
     lateinit var recyclerViewCategoryList: RecyclerView
     lateinit var recyclerViewPopularList: RecyclerView
     lateinit var profile:TextView
     lateinit var tv_3 :TextView
     lateinit var iv_Lougout :ImageView
+    lateinit var tokenCart : String
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +38,8 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
         tv_3=findViewById(R.id.textView3)
         iv_Lougout=findViewById(R.id.imageView2)
 
+        val i = intent
+        tokenCart = i.getStringExtra("token").toString()
 
         iv_Lougout.setOnClickListener(){
             Storage.token=null
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
 
         cartbtn.setOnClickListener(){
             val intent = Intent(this, CartListActivity::class.java)
+            intent.putExtra("token",tokenCart)
             startActivity(intent)
         }
         homebtn.setOnClickListener(){
@@ -86,7 +88,7 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
         category.add(CategoryDomain("Drink","cat_4"))
         category.add(CategoryDomain("Donat","cat_5"))
 
-        adapter= CategoryAdapter(category,this)
+        adapter= CategoryAdapter(category,this,tokenCart)
         recyclerViewCategoryList.setAdapter(adapter)
     }
 
@@ -99,13 +101,15 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
         FoodList.add(FoodDomain("Pizza","Pepproni Pizza","pizza1","slices pepproni",9.76,R.drawable.pop_1))
         FoodList.add(FoodDomain("Burger","Cheese Burger","burger","beef,cheese",10.0,R.drawable.pop_2))
         FoodList.add(FoodDomain("Special Pizza","Vegetables Pizza","pizza2","slices vegetables ",8.0,R.drawable.pop_3))
-         adapter2 = PopularAdapter(FoodList)
+         adapter2 = PopularAdapter(FoodList,tokenCart)
         recyclerViewPopularList.setAdapter(adapter2)
     }
 
-    override fun onItemClick(category: String) {
+    override fun onItemClick(category: String,token:String) {
         CurrentCategory.currentcategory=category
+        CurrentCategory.token=token
         val intent = Intent(this, Menu::class.java)
+        intent.putExtra("token",token)
         startActivity(intent)
     }
 

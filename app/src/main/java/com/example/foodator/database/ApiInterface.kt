@@ -1,5 +1,6 @@
 package com.example.foodapp.database
 
+import com.example.foodator.Activity.Domain.FoodDomain
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,15 +16,9 @@ interface ApiInterface {
      fun loginUser(@Query("email") email: String,@Query("password") password:String): Call<LoginResposeData?>?
 
 
+    @GET("v2/top-headlines")
+    fun getProducts() : Call<List<FoodDomain>>
 
-   // fun getNews(@Query("category") category: String,@Query("apiKey") apiKey: String): Call<ApiResponse?>? //// return news
-
-
-//    @Headers(
-//        {
-//            "Authorization:"
-//        }
-//    )
    // https://foodapplicationecomercial.herokuapp.com/Home/UpdateProfile?newEmail=huda@33.com&newUsername=huda&newPassword=H5_h511115
     @POST("Home/UpdateProfile/")
      fun upateProfile(@Header("Authorization") Authorization: String, @Query("newEmail") newEmail: String, @Query("newUsername") newUsername:String, @Query("newPassword") newPassword:String): Call<String>?
@@ -33,6 +28,11 @@ interface ApiInterface {
 
 
 }
+
+var retrofit2 = Retrofit.Builder()
+    .baseUrl("https://newsapi.org/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build().create(ApiInterface::class.java)
 
 var retrofit = Retrofit.Builder()
     .baseUrl("https://foodapplicationecomercial.herokuapp.com/")

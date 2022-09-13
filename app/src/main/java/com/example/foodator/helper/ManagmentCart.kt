@@ -11,12 +11,14 @@ import kotlin.math.log
 class ManagmentCart {
     lateinit var  context:Context
     lateinit var  tiny : TinyDB
+    lateinit var token:String
 
-    constructor(context: Context){
+
+    constructor(context: Context,token: String){
         this.context=context
+        this.token=token
         this.tiny= TinyDB(context)
     }
-
 
     fun insertFood(item:FoodDomain){
         val listFood:ArrayList<FoodDomain> = getListCart()
@@ -37,18 +39,18 @@ class ManagmentCart {
         else{
             listFood.add(item)
         }
-        tiny.putListObject("CartList",listFood)
+        tiny.putListObject(token,listFood)
         Toast.makeText(context,"Added To Cart",Toast.LENGTH_LONG).show()
 
     }
 
     fun getListCart():ArrayList<FoodDomain>{
-        return tiny.getListObject("CartList")
+        return tiny.getListObject(token)
     }
 
     fun plusNumberFood(listfood: ArrayList<FoodDomain>, position: Int, changeNumberItemsListener: () -> Unit) {
         listfood.get(position).setnumberInCart(listfood.get(position).getnumInCart()+1)
-        tiny.putListObject("CartList",listfood)
+        tiny.putListObject(token,listfood)
         changeNumberItemsListener
     }
 
@@ -61,7 +63,7 @@ class ManagmentCart {
             listfood.get(position).setnumberInCart(listfood.get(position).getnumInCart()-1)
 
         }
-        tiny.putListObject("CartList",listfood)
+        tiny.putListObject(token,listfood)
         changeNumberItemsListener
     }
 

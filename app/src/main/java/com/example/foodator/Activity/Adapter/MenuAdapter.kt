@@ -13,13 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodator.Activity.Domain.FoodDomain
 import com.example.foodator.Activity.ShowDetActivity
 import com.example.foodator.R
+import com.google.gson.annotations.SerializedName
 
-class MenuAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
-    //    var PopularDomains : ArrayList<FoodDomain> = ArrayList()
-
-    //constructor(categoryDomains: ArrayList<CategoryDomain>){
-//    this.categoryDomains=categoryDomains
-//}
+class MenuAdapter(var FoodList: List<FoodDomain>?,var token:String) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title : TextView
         val fee: TextView
@@ -28,7 +24,6 @@ class MenuAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter<Me
         val mainlayout : ConstraintLayout
 
         init {
-
             title = view.findViewById(R.id.poptitle)
             pic=view.findViewById(R.id.poppic)
             addbtn=view.findViewById(R.id.addbtn)
@@ -45,23 +40,31 @@ class MenuAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter<Me
         return ViewHolder(view)    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.setText(this.FoodList.get(position).gettitle())
-        holder.fee.setText(this.FoodList.get(position).getfee().toString())
+        holder.title.setText(this.FoodList?.get(position)?.gettitle() ?:"No Data" )
+        holder.fee.setText(this.FoodList?.get(position)?.getfee().toString())
 
         var picUrl:String =""
         holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
-        holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,FoodList.get(position).getpicdraw()))
+        holder.pic.setImageDrawable(FoodList?.get(position)?.let {
+            ContextCompat.getDrawable(holder.itemView.context,
+                it.getpicdraw())
+        })
 
         holder.addbtn.setOnClickListener(){
             val intent = Intent(holder.itemView.context, ShowDetActivity::class.java)
-            intent.putExtra("obj",FoodList.get(position))
+            intent.putExtra("obj", FoodList?.get(position))
+            intent.putExtra("token",token)
             holder.itemView.context.startActivity(intent)
+
         }
     }
 
     override fun getItemCount(): Int {
-        return FoodList.size
+        return FoodList?.size ?: 0
     }
 
-
+//    data class word(
+//        @SerializedName("word") val word:String,
+//        val url:String
+//    )
 }

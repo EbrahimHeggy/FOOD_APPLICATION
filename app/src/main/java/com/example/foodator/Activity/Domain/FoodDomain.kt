@@ -1,11 +1,20 @@
 package com.example.foodator.Activity.Domain
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 //[11:13 am, 18/08/2022] Eng :EBrahim Muhamed:
 //[11:14 am, 18/08/2022] Eng :EBrahim Muhamed: var pictureDrawable = 0
 //pictureDrawable:Int
 
+//@SerializedName("source"      ) var source      : Source? = Source(),
+//@SerializedName("author"      ) var author      : String? = null,
+//@SerializedName("title"       ) var title       : String? = null,
+//@SerializedName("description" ) var description : String? = null,
+//@SerializedName("url"         ) var url         : String? = null,
+//@SerializedName("urlToImage"  ) var urlToImage  : String? = null,
+//@SerializedName("publishedAt" ) var publishedAt : String? = null,
+//@SerializedName("content"     ) var content     : String? = null
 
 
 open class FoodDomain : Serializable {

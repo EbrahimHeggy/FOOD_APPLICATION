@@ -22,16 +22,12 @@ class ShowDetActivity : AppCompatActivity() {
     lateinit var picfood : ImageView
     var numberOrder=1
     lateinit var managementcart:ManagmentCart
-//  lateinit var  obj2: FoodDomain
-//    var total =obj2.getfee()
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_det)
-        managementcart = ManagmentCart(this)
+        val i =intent
+        managementcart = ManagmentCart(this,i.getStringExtra("token").toString())
         addToCartBtn=findViewById(R.id.addtocart)
         titletxt=findViewById(R.id.titletxt)
         feetxt=findViewById(R.id.pricetxt)

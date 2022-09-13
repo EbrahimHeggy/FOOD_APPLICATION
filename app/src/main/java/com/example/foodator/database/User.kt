@@ -1,6 +1,7 @@
 package com.ntgclarity.authenticator.database
 
 import androidx.room.*
+import com.example.foodator.Activity.Domain.FoodDomain
 
 @Entity
 data class User(
@@ -8,7 +9,9 @@ data class User(
     @ColumnInfo(name = "name") val name: String?,
     @ColumnInfo(name = "email") val email: String?,
     @ColumnInfo(name = "password") val password: String?,
-    @ColumnInfo(name = "con_password") val con_password: String?
+    @ColumnInfo(name = "con_password") val con_password: String?,
+    val list: List<FoodDomain>?
+
 )
 
 @Dao

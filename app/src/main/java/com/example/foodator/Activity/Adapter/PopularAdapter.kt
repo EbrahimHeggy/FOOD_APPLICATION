@@ -19,12 +19,8 @@ import com.example.foodator.Activity.Domain.FoodDomain
 import com.example.foodator.Activity.ShowDetActivity
 import com.example.foodator.R
 
-class PopularAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
-//    var PopularDomains : ArrayList<FoodDomain> = ArrayList()
+class PopularAdapter(var FoodList: ArrayList<FoodDomain>,var token:String) : RecyclerView.Adapter<PopularAdapter.ViewHolder>() {
 
-//constructor(categoryDomains: ArrayList<CategoryDomain>){
-//    this.categoryDomains=categoryDomains
-//}
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title : TextView
         val fee: TextView
@@ -78,6 +74,7 @@ class PopularAdapter(var FoodList: ArrayList<FoodDomain>) : RecyclerView.Adapter
         holder.addbtn.setOnClickListener(){
             val intent = Intent(holder.itemView.context,ShowDetActivity::class.java)
             intent.putExtra("obj",FoodList.get(position))
+            intent.putExtra("token",token)
             holder.itemView.context.startActivity(intent)
         }
     }

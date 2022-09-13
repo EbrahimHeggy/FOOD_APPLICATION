@@ -74,8 +74,9 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResposeData?>{
                 Storage.email=response.body()?.email
                 Storage.username=response.body()?.username
                 checkToken()
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("token", response.body()!!.token)
+                startActivity(intent)
             }
             else if(response.body()?.email==null){
                 Toast.makeText(this, "There Is No Account Found ,Please Register First", Toast.LENGTH_SHORT).show()
