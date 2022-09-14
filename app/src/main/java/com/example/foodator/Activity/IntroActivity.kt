@@ -3,6 +3,7 @@ package com.example.foodator.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import com.example.foodapp.LoginActivity
 import com.example.foodapp.ProfileActivity
@@ -32,5 +33,7 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 }

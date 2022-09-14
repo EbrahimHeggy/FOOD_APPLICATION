@@ -19,6 +19,8 @@ class startActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
+
         setContentView(R.layout.activity_start)
         registerButton =findViewById(R.id.bnt_register)
         registerButton.setOnClickListener{
