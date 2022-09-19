@@ -96,12 +96,7 @@ class CartListAdapter(val token :String, foodDomain: ArrayList<FoodDomain>, cont
                 // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.pop_1))
                 return R.drawable.pop_1
             }
-            "Cheese Burger" -> {
-                picUrl = "pop_2"
-                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
-                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
-                return R.drawable.pop_2
-            }
+
             "Vegetables Pizza" -> {
                 picUrl = "pop_3"
                 //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
@@ -136,7 +131,38 @@ class CartListAdapter(val token :String, foodDomain: ArrayList<FoodDomain>, cont
                 picUrl = "pop_3"
                 //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
                 // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
-                return R.drawable.mcdonalds_burger_png_high_quality_image_chicken_burger_kfc_png_transparent_png600x600_png_find
+                return R.drawable.burger2
+            }
+
+                "Beef Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+                return R.drawable.burder1
+            }
+            "Double Chicken Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+                return R.drawable.burger3
+            }
+            "Double Beef Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+                return R.drawable.burger4
+            }
+            "Godzilla Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+                return R.drawable.pop_2
+            }
+            "Cheese Beef Burger" -> {
+                picUrl = "pop_2"
+                //   holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background2))
+                // holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_2))
+                return R.drawable.burger5
             }
             else -> {
                 return R.drawable.mcdonalds_burger_png_high_quality_image_chicken_burger_kfc_png_transparent_png600x600_png_find
