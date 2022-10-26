@@ -54,7 +54,7 @@ class PopularAdapter(var FoodList: ArrayList<FoodDomain>,var token:String) : Rec
             0 -> {
                 picUrl="pop_1"
                 holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background1))
-                holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.pop_1))
+                holder.pic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.caridea))
 
             }
             1 -> {

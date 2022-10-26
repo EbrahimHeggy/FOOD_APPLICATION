@@ -11,9 +11,7 @@ data class User(
     @ColumnInfo(name = "password") val password: String?,
     @ColumnInfo(name = "con_password") val con_password: String?,
     val list: List<FoodDomain>?
-
 )
-
 @Dao
 interface UserDao {
     @Query("select * From user")

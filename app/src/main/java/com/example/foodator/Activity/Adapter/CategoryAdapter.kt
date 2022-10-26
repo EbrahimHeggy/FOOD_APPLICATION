@@ -63,7 +63,10 @@ class CategoryAdapter(var categoryDomains: ArrayList<CategoryDomain>,val listene
             2-> {
             picUrl="cat_3"
             holder.mainlayout.setBackground(ContextCompat.getDrawable(holder.itemView.context,R.drawable.category_background3))
-                holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.cat_3))
+                holder.CategoryPic.setImageDrawable(ContextCompat.getDrawable(holder.itemView.context,R.drawable.dish))
+                holder.CategoryPic.setOnClickListener() {
+                    listener.onItemClick("Dishes", token)
+                }
 
             } 3 -> {
             picUrl="cat_4"

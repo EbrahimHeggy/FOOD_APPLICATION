@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
         val category : ArrayList<CategoryDomain>  = ArrayList()
         category.add(CategoryDomain("Pizza","cat_1"))
         category.add(CategoryDomain("Burger","cat_2"))
-        category.add(CategoryDomain("Hotdog","cat_3"))
+        category.add(CategoryDomain("Dishes","cat_3"))
         category.add(CategoryDomain("Drink","cat_4"))
         category.add(CategoryDomain("Donat","cat_5"))
 
@@ -98,8 +98,8 @@ class MainActivity : AppCompatActivity(),CategoryAdapter.OnItemClickListener {
         recyclerViewPopularList.setLayoutManager(linearLayoutManager)
 
         val FoodList : ArrayList<FoodDomain>  = ArrayList()
-        FoodList.add(FoodDomain("Pizza","Pepproni Pizza","pizza1","slices pepproni",9.76,R.drawable.pop_1))
-        FoodList.add(FoodDomain("Burger","Cheese Burger","burger","beef,cheese",10.0,R.drawable.pop_2))
+        FoodList.add(FoodDomain("Caridea","Caridea","caridea.jpg","Caridea",20.0,R.drawable.caridea))
+        FoodList.add(FoodDomain("Burger","Chicken Burger","pop_2.png","beef,cheese",10.0,R.drawable.pop_2))
         FoodList.add(FoodDomain("Special Pizza","Vegetables Pizza","pizza2","slices vegetables ",8.0,R.drawable.pop_3))
          adapter2 = PopularAdapter(FoodList,tokenCart)
         recyclerViewPopularList.setAdapter(adapter2)

@@ -38,14 +38,6 @@ class Menu : AppCompatActivity() {
         recyclerViewMenuList = findViewById(R.id.recyclerView3)
         recyclerViewMenuList.setLayoutManager(linearLayoutManager)
         //recyclerViewMenuList.setLayoutManager(GridLayoutManager(this, 2))
-
-        val FoodList: ArrayList<FoodDomain> = ArrayList()
-//        FoodList.add((FoodDomain("Pizza","Pepproni Pizza","pizza1","slices pepproni",9.76)))
-//        FoodList.add(FoodDomain("Burger","Cheese Burger","burger","beef,cheese",10.0))
-//        FoodList.add(FoodDomain("Special Pizza","Vegetables Pizza","pizza2","slices vegetables ",8.0))
-
-//        adapter3 = PopularAdapter(Products.products)
-
         val i =intent
         managementcart = ManagmentCart(this,i.getStringExtra("token").toString())
         println(CurrentCategory.currentcategory)
@@ -68,6 +60,12 @@ class Menu : AppCompatActivity() {
            val DrinkList: ArrayList<FoodDomain>
            DrinkList= Products.products?.filter {it.category=="Drink"} as ArrayList<FoodDomain>
            adapter3 = MenuAdapter(DrinkList,managementcart.token)
+           recyclerViewMenuList.setAdapter(adapter3)
+
+       } else if(CurrentCategory.currentcategory=="Dishes"){
+           val dishList: ArrayList<FoodDomain>
+           dishList= Products.products?.filter {it.category=="Dishes"} as ArrayList<FoodDomain>
+           adapter3 = MenuAdapter(dishList,managementcart.token)
            recyclerViewMenuList.setAdapter(adapter3)
 
        }

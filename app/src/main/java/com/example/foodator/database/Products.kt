@@ -19,7 +19,12 @@ object Products  {
         lista.add(FoodDomain("Burger","Double Chicken Burger","burger","beef,cheese",25.0,R.drawable.burger3))
         lista.add(FoodDomain("Burger","Double Beef Burger","burger","beef,cheese",30.0,R.drawable.burger4))
         lista.add(FoodDomain("Burger","Godzilla Burger","burger","beef,cheese",35.0,R.drawable.pop_2))
-        lista.add(FoodDomain("Burger","Cheese Beef Burger","burger","beef,cheese",37.0,R.drawable.burger5))
+        lista.add(FoodDomain("Burger","Cheese Beef Burger","burger","cheese burger",37.0,R.drawable.burger5))
+        lista.add(FoodDomain("Dishes","Chicken","burger","Chicken",37.0,R.drawable.d1))
+        lista.add(FoodDomain("Dishes","special Chicken","burger","beef,cheese",37.0,R.drawable.d2))
+        lista.add(FoodDomain("Dishes","Sushi","burger","fishes",37.0,R.drawable.d3))
+        lista.add(FoodDomain("Dishes","special Dish","burger","beef,chicken,cheese",37.0,R.drawable.d4))
+        lista.add(FoodDomain("Dishes","Botato","burger","beef,Botato",37.0,R.drawable.d5))
 
 
 

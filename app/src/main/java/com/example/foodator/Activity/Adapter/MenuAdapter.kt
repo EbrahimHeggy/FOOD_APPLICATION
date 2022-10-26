@@ -38,7 +38,9 @@ class MenuAdapter(var FoodList: List<FoodDomain>?,var token:String) : RecyclerVi
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.menucard, parent, false)
         return ViewHolder(view)    }
-
+    override fun getItemCount(): Int {
+        return FoodList?.size ?: 0
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.setText(this.FoodList?.get(position)?.gettitle() ?:"No Data" )
         holder.fee.setText(this.FoodList?.get(position)?.getfee().toString())
@@ -59,9 +61,7 @@ class MenuAdapter(var FoodList: List<FoodDomain>?,var token:String) : RecyclerVi
         }
     }
 
-    override fun getItemCount(): Int {
-        return FoodList?.size ?: 0
-    }
+
 
 //    data class word(
 //        @SerializedName("word") val word:String,

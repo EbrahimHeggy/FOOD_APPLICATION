@@ -15,8 +15,8 @@ interface ApiInterface {
     @GET("Home/login")
      fun loginUser(@Query("email") email: String,@Query("password") password:String): Call<LoginResposeData?>?
 
-
-    @GET("v2/top-headlines")
+      // foodapplicationecomercial.herokuapp.com/Home/allFoodProducts
+    @GET("Home/allFoodProducts")
     fun getProducts() : Call<List<FoodDomain>>
 
    // https://foodapplicationecomercial.herokuapp.com/Home/UpdateProfile?newEmail=huda@33.com&newUsername=huda&newPassword=H5_h511115
